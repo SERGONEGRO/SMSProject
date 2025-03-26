@@ -1,0 +1,81 @@
+﻿<Window x:Class="SMS.WpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SMS.WpfApp"
+        mc:Ignorable="d"
+        Title="Тестовое WPF-приложение для SmartMealService"
+        Width="800"
+        Height="450"
+        Style="{StaticResource MaterialDesignWindow}"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        Closed="Window_Closed">
+    <Grid>
+        <Border Background="{DynamicResource MaterialDesignCardBackground}"
+                CornerRadius="20"
+                Padding="20"
+                BorderBrush="{DynamicResource MaterialDesignDivider}"
+                BorderThickness="0"
+                >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Horizontal">
+
+                    <TextBlock Text="Тестовое WPF-приложение для SmartMealService"
+                           FontSize="15"
+                           FontWeight="Bold"
+                           Foreground="Black"
+                               HorizontalAlignment="Center"/>
+                    <Button Content="_"
+                            Style="{DynamicResource MaterialDesignCloseButton}"
+                            Margin="330 0 0 25"
+                            Background="Transparent"
+                            FontSize="20"
+                            BorderThickness="0"
+                            HorizontalAlignment="Right"
+                            Width="30"
+                            Height="30"
+                             Cursor=""
+                            FontWeight="ExtraBold" Click="Button_Click"/>  
+                    <Button Content="X"
+                            Style="{DynamicResource MaterialDesignCloseButton}"
+                            Margin="10 0 0 20"
+                            Background="Transparent"
+                            FontSize="20"
+                            FontWeight="ExtraBold"
+                            BorderThickness="0"
+                            HorizontalAlignment="Right"
+                            Width="30"
+                            Height="30"
+                            Click="CloseButton_Click" Cursor="" />
+                </StackPanel>
+
+                <Border Grid.Row="1" CornerRadius="20" BorderBrush="Black" Padding="10"
+                        BorderThickness="1">
+
+                    <DataGrid Grid.Row="1" x:Name="environmentVariablesGrid"
+                              AutoGenerateColumns="False"
+                              Style="{DynamicResource MaterialDesignDataGrid}"
+                              Background="White"
+                              GridLinesVisibility="Horizontal"
+                              RowHeight="40"
+                              CanUserAddRows="True"
+                              CellEditEnding="environmentVariablesGrid_CellEditEnding">
+
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Поле" Binding="{Binding Field, Mode=TwoWay}" Width="*"/>
+                            <DataGridTextColumn Header="Значение" Binding="{Binding Value, Mode=TwoWay}" Width="*"/>
+                            <DataGridTextColumn Header="Комментарий" Binding="{Binding Comment, Mode=TwoWay}" Width="*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Border>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
